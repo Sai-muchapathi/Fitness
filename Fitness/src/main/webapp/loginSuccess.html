@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="./styles/success.css">
+</head>
+<body>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Login Successful!</h2>
+            
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            openModal();
+        };
+
+        function openModal() {
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+       function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            window.location.href = "Dashboard.html";
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById('successModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+    </script>
+
+</body>
+</html>

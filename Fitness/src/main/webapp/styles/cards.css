@@ -1,0 +1,111 @@
+body {
+            font-family: Arial, sans-serif;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        
+        .container {
+            display: flex;
+            margin: 5%;
+            align-items: center;
+            
+        }
+        
+        .container:hover,
+		.container:focus {
+		    color: black;
+		    text-decoration: none;
+		    cursor: pointer;
+		}
+        
+        .container2 {
+            display: flex;
+            margin: 10%;
+            align-items: center;
+        }
+
+		.container2:hover,
+		.container2:focus {
+		    color: black;
+		    text-decoration: none;
+		    cursor: pointer;
+		}
+		
+        .rounded-image {
+			height: 200px;
+            border-radius: 30%;
+            overflow: hidden;
+            margin-right: 20px; 
+        }
+        
+         .rounded-image2 {
+			height: 200px;
+            border-radius: 30%;
+            overflow: hidden;
+            margin-left: 20px; 
+            
+        }
+
+        .rounded-image img {
+            height: auto;
+            display: block;
+        }
+        
+        .app-header {
+		    background-color: #282c34;
+		    padding: 20px;
+		    color: white;
+		    text-align: center;
+		}
+
+        .text-container {
+            width: 600px; 
+            background-color: #81c5b3;
+            border-radius: 0% 10% 0% 10%;
+            padding-left: 3%;
+        }
+        
+        .text-container2 {
+            width: 600px; 
+            background-color: #81c5b3;
+            border-radius: 10% 0% 10% 0%;
+            padding-left: 3%;
+        }
+        
+        .fa-brands {
+			padding: 6.5px;
+			
+		}
+		
+		.title {
+			text-align: center;
+		}
+		
+		#cart {
+			float: right;
+			padding-right: 25px;
+		}
+		
+		#popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        p {
+			font-family: 'Roboto Condensed', sans-serif;	
+		}
+		
+		h2 {
+			background-color: #4d8f7f;	
+		}

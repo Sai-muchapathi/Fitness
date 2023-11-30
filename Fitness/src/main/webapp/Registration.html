@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="styles/register.css">
+</head>
+<body>
+
+	<div class="login-container">
+	    <h1>User Registration</h1>
+	
+	    <label for="username">Username: </label>
+	    <input type="text" id="username" required/><br>
+	
+	    <label for="password">Password: </label>
+	    <input type="password" id="password" required/><br>
+	
+	    <label for="confirmPassword">Confirm Password: </label>
+	    <input type="password" id="confirmPassword" required/><br>
+	
+	    <button onclick="registerUser()">Register</button>
+	</div>
+
+    <script>
+        function registerUser() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "UserSignup",
+                data: { username: username, password: password },
+                success: function (data) {
+                    window.location.href = "success.html"; 
+                },
+                error: function (error) {
+                    alert("Registration failed. Please try again.");
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+	<div class="login-container">
+	    <h2>Login</h2>
+	    <div>
+	        <label for="username">Username</label>
+	        <input type="text" id="username" name="username">
+	    </div>
+	    <div>
+	        <label for="password">Password</label>
+	        <input type="password" id="password" name="password">
+	    </div>
+	    <button onclick="submitForm()">Submit</button>
+	</div>
+
+    <script>
+        function submitForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    if (response.trim() === "success") {
+                        window.location.href = "loginSuccess.html";
+                    } else {
+                        alert("Invalid credentials. Please try again.");
+                    }
+                }
+            };
+            xhr.open("POST", "UserLogin", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("username=" + username + "&password=" + password);
+        }
+    </script>
+</body>
+</html>

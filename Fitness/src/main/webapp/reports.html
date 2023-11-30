@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Example</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	
+	<header class="app-header">
+            <h1>Fitness Tracker</h1>
+            <h6><button onclick="redirectToIndex()">Logout</button></h6>
+        </header>
+	<div class="container" style="margin-left: 25%;">
+	    <div class="card" onclick="viewReport()">
+	      <img src="images/report.jpg" alt="Card Image 1" style="height: 300px;">
+	      <div class="card-content">
+	        <h2>View Report</h2>
+	        <p>Click to open report.</p>
+	      </div>
+	    </div>
+
+    
+		<div class="card" onclick="viewReport()">
+	      <img src="images/report.jpg" alt="Card Image 2" style="height: 300px;">
+	      <div class="card-content">
+	        <h2>Download Report</h2>
+	        <a href="DownloadReports" download="data.csv"><p>click here to download</p></a>
+	      </div>
+   		</div>
+  </div>
+	
+	<header class="app-header">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            
+            <h1>
+				<i class="fa-solid fa-copyright">   All rights Reserved Sai.....</i>
+			</h1>
+        </header>
+	
+
+
+<script>
+    function viewReport() {
+        var xhr = new XMLHttpRequest();
+
+        var servletUrl = 'Reports';
+
+        xhr.open("GET", servletUrl, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.body.innerHTML = xhr.responseText;
+
+            var script = document.createElement('script');
+            script.src = 'https://code.jquery.com/jquery-3.5.1.slim.min.js';
+            document.head.appendChild(script);
+
+            script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js';
+            document.head.appendChild(script);
+            
+            script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js';
+            document.head.appendChild(script);
+
+            script = document.createElement('script');
+            script.src = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js';
+            document.head.appendChild(script);
+                var responseData = xhr.responseText;
+                console.log("Response from servlet:", responseData);
+            }
+        };
+
+        xhr.send();
+    }
+</script>
+
+</body>
+</html>

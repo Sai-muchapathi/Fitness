@@ -1,0 +1,91 @@
+body {
+            font-family: Arial, sans-serif;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            margin: 5%;
+            align-items: center;
+        }
+        
+        button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+        
+        .container2 {
+            display: flex;
+            margin: 10%;
+            align-items: center;
+        }
+
+        .rounded-image {
+			height: 200px;
+            border-radius: 60%;
+            overflow: hidden;
+            margin-right: 20px; /* Adjust the spacing between image and text */
+        }
+        
+         .rounded-image2 {
+			height: 200px;
+            border-radius: 60%;
+            overflow: hidden;
+            margin-left: 20px; 
+            
+        }
+
+        .rounded-image img {
+            height: auto;
+            display: block;
+        }
+        
+        .app-header {
+		    background-color: #282c34;
+		    padding: 20px;
+		    color: white;
+		    text-align: center;
+		}
+
+        .text-container {
+            width: 600px; 
+            background-color: #81c5b3;
+            border-radius: 0% 10% 0% 10%;
+            padding-left: 3%;
+        }
+        
+        .text-container2 {
+            width: 600px; 
+            background-color: #81c5b3;
+            border-radius: 10% 0% 10% 0%;
+            padding-left: 3%;
+        }
+        
+        .fa-brands {
+			padding: 6.5px;
+		}
+        
+        p {
+			font-family: 'Roboto Condensed', sans-serif;	
+		}
+		
+		h2 {
+			background-color: #4d8f7f;	
+		}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Example</title>
+    <link rel="stylesheet" href="styles/cards.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/7f9275f039.js" crossorigin="anonymous"></script>
+</head>
+<body>
+		<header class="app-header">
+            <h1>Fitness Tracker</h1>
+            <h6><button onclick="redirectToIndex()">Logout</button></h6>
+        </header>
+        <div class="title">    
+			<h1>Click on the cards to add to the list</h1>
+        <div id="cartItems">
+			
+		</div>
+        </div>
+        <div id="cart">
+		       <h1 style="font-size: 10px; display: inline;">Click here to submit ---> </h1><i class="fa-solid fa-list" onclick="showPopup()"></i>
+		       
+		</div>
+		
+		
+<div id="popup">
+    <h2>Array List</h2>
+    <ul id="arrayList"></ul>
+    <button onclick="commit()">Proceed</button>
+    <button onclick="hidePopup()">Close</button>
+</div>
+
+<div class="card-container">
+    <div class="container" onclick="addToCart('Chest')">
+        <img src="images/workouts/chest.jpg" alt="Card Image 1" class="rounded-image">
+        <div class="text-container">
+            <h2>Chest</h2>
+            <p>Set your workout for today.</p>
+        </div>
+    </div>
+
+    <div class="container2" onclick="addToCart('Shoulders')">
+        <div class="text-container">
+            <h2>Shoulders</h2>
+            <p>Set your goals.</p>
+        </div>
+        <img src="images/workouts/shoulder.jpg" alt="Card Image 2" class="rounded-image2">
+    </div>
+
+    <div class="container" onclick="addToCart('Biceps')">
+        <img src="images/workouts/bicep.png" alt="Card Image 3" class="rounded-image">
+        <div class="text-container">
+            <h2>Biceps</h2>
+            <p>Generate reports here.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="card-container">
+
+
+    <div class="container2" onclick="addToCart('Triceps')">
+        <div class="text-container">
+            <h2>Triceps</h2>
+            <p>Set your workout for today.</p>
+        </div>
+        <img src="images/workouts/tricep.jpeg" alt="Card Image 1" class="rounded-image2">
+    </div>
+
+    <div class="container" onclick="addToCart('Back')">
+        <img src="images/workouts/back.jpeg" alt="Card Image 2" class="rounded-image">
+        <div class="text-container">
+            <h2>Back</h2>
+            <p>Set your goals.</p>
+        </div>
+    </div>
+
+    <div class="container2" onclick="addToCart('Abs')">
+       
+        <div class="text-container">
+            <h2>Abs</h2>
+            <p>Generate reports here.</p>
+        </div>
+         <img src="images/workouts/abs.jpeg" alt="Card Image 3" class="rounded-image2">
+    </div>
+</div>
+<div class="card-container">
+
+    <div class="container" onclick="addToCart('Legs')">
+        <img src="images/workouts/legs.jpeg" alt="Card Image 1" class="rounded-image">
+        <div class="text-container">
+            <h2>Legs</h2>
+            <p>Set your workout for today.</p>
+        </div>
+    </div>
+
+    <div class="container2" onclick="addToCart('Yoga')">
+        
+        <div class="text-container">
+            <h2>Yoga</h2>
+            <p>Set your goals.</p>
+        </div>
+        <img src="images/workouts/yoga.jpeg" alt="Card Image 2" class="rounded-image2">
+    </div>
+
+    <div class="container" onclick="addToCart('Cardio')">
+        <img src="images/workouts/cardio.jpeg" alt="Card Image 3" class="rounded-image">
+        <div class="text-container">
+            <h2>Cardio</h2>
+            <p>Generate reports here.</p>
+        </div>
+    </div>
+</div>
+  <header class="app-header">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            
+            <h1>
+				<i class="fa-solid fa-copyright">   All rights Reserved Sai.....</i>
+			</h1>
+        </header>
+
+    <script>
+        const cart = [];
+
+        function addToCart(item) {
+            cart.push(item);
+            updateCartUI();
+        }
+
+        function commit() {
+            const arrayToSend = cart;
+            
+            var data = cart;
+
+            fetch('MyServlet', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'data=' + JSON.stringify(data),
+            })
+            .then(response => response.text())
+            .then(message => {
+                console.log('Response from server:', message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+            cart.splice(0, cart.length);
+            updateCartUI();
+            hidePopup();
+        }
+
+        function updateCartUI() {
+            const cartItemsElement = document.getElementById('cartItems');
+            cartItemsElement.innerHTML = '';
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                cartItemsElement.appendChild(listItem);
+            });
+        }
+
+        function clearList() {
+            cart.splice(0, cart.length);
+            updateCartUI();
+        }
+        
+        var arrayData = cart;
+        
+
+    function showPopup() {
+        var popup = document.getElementById('popup');
+        var arrayList = document.getElementById('arrayList');
+
+        arrayList.innerHTML = '';
+
+         arrayData.forEach(function (item) {
+            var listItem = document.createElement('li');
+            listItem.textContent = item;
+            arrayList.appendChild(listItem);
+        });
+
+        popup.style.display = 'block';
+    }
+
+    function hidePopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'none';
+    }
+    function redirectToIndex() {
+		window.location.href = "index.html";
+	}
+    </script>
+
+</body>
+</html>

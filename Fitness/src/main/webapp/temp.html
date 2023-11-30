@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Example</title>
+    <link rel="stylesheet" href="styles/temp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/7f9275f039.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<header class="app-header">
+            <h1>Fitness Tracker</h1>
+        </header>
+    
+    <div onclick="redirectToWorkouts()" class="container">
+        <img src="images/dumbel.jpg" alt="Card Image 1" class="rounded-image">
+        <div class="text-container">
+            <h2>Workouts</h2>
+            <p>"Embark on a transformative fitness journey with our comprehensive workout programs tailored for all fitness levels on our cutting-edge fitness tracking website." </p>
+        </div>
+    </div>
+    
+    
+    
+    <div onclick="redirectToGoals()" class="container2">
+        <div class="text-container2">
+            <h2>Goals</h2>
+            <p>"Our overarching vision is to inspire and motivate users to make sustainable lifestyle changes, leveraging technology to enhance their well-being and build a stronger, healthier community."</p>
+        </div>
+        <img src="images/goals.png" alt="Card Image 2" class="rounded-image2">
+    </div>
+
+    <!-- Card 3 -->
+    <div onclick="redirectToReports()" class="container">
+        <img src="images/report.jpg" alt="Card Image 3" class="rounded-image">
+        <div class="text-container">
+            <h2>Reports</h2>
+            <p>"Reports on a fitness tracking website serve as insightful summaries, providing users with a comprehensive overview of their health and wellness journey. "</p>
+        </div>
+    </div>
+    
+    
+    <header class="app-header">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            
+            <h1>
+				<i class="fa-solid fa-copyright">   All rights Reserved Sai.....</i>
+			</h1>
+        </header>
+
+    <!-- Card 2 -->
+    
+
+<script>
+    // JavaScript function to redirect to another page
+    function redirectToWorkouts() {
+        // Change "login.html" to the actual file path or URL of your login page
+        window.location.href = "workouts.html";
+    }
+    function redirectToGoals() {
+        // Change "login.html" to the actual file path or URL of your login page
+        window.location.href = "goals.html";
+    }
+    function redirectToReports() {
+        // Change "login.html" to the actual file path or URL of your login page
+        window.location.href = "reports.html";
+    }
+
+</script>
+
+</body>
+</html>
